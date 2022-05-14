@@ -4,7 +4,7 @@ const open = require("open");
 
 
 
-function recipes(food, diet, health, meal)  // print recipe list
+function recipes(food, diet, health, meal)  // print recipe list fuction
 {
     if (food && diet && health && meal)
     {
@@ -19,8 +19,8 @@ function recipes(food, diet, health, meal)  // print recipe list
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Pick one of the recipes");
-            for(let i = 0; i < data.hits.length; i++)                      // print
+        .then((data) => {console.log("Recipe list");
+            for(let i = 0; i < data.hits.length; i++)                      // print recipe list
             {
                 console.log(i + ". " + data.hits[i].recipe.label)
             }
@@ -39,7 +39,7 @@ function recipes(food, diet, health, meal)  // print recipe list
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Pick one of the recipes");
+        .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
                 console.log(i + ". " + data.hits[i].recipe.label)
@@ -59,7 +59,7 @@ function recipes(food, diet, health, meal)  // print recipe list
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Pick one of the recipes");
+        .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
                 console.log(i + ". " + data.hits[i].recipe.label)
@@ -79,7 +79,7 @@ function recipes(food, diet, health, meal)  // print recipe list
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Pick one of the recipes");
+        .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
                 console.log(i + ". " + data.hits[i].recipe.label)
@@ -98,7 +98,7 @@ function recipes(food, diet, health, meal)  // print recipe list
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Pick one of the recipes");
+        .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
                 console.log(i + ". " + data.hits[i].recipe.label)
@@ -117,7 +117,7 @@ function recipes(food, diet, health, meal)  // print recipe list
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Pick one of the recipes");
+        .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
                 console.log(i + ". " + data.hits[i].recipe.label)
@@ -136,7 +136,7 @@ function recipes(food, diet, health, meal)  // print recipe list
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Pick one of the recipes");
+        .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
                 console.log(i + ". " + data.hits[i].recipe.label)
@@ -154,7 +154,7 @@ function recipes(food, diet, health, meal)  // print recipe list
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Pick one of the recipes");
+        .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
                 console.log(i + ". " + data.hits[i].recipe.label)
@@ -168,7 +168,7 @@ function recipes(food, diet, health, meal)  // print recipe list
     }
 }
 
-function link(recipe)           // link to recipe website
+function link(recipe)           // link to recipe website 
 {
     fetch(query.withQuery("https://api.edamam.com/api/recipes/v2", {
         type: "public",
@@ -178,10 +178,10 @@ function link(recipe)           // link to recipe website
 
     }))
     .then((response) => response.json())
-    .then((data) => {console.log("Pick one of the recipes");
-        for(let i = 0; i < data.hits.length; i++)                          // 입력값이랑 레시피 이름이랑 완전히 똑같을 경우 연결 
+    .then((data) => {
+        for(let i = 0; i < data.hits.length; i++)                          
         {
-            if(recipe.toUpperCase() === data.hits[i].recipe.label.toUpperCase())
+            if(recipe.toUpperCase() === data.hits[i].recipe.label.toUpperCase())          // if input and recipe name are same, link to recipe site
             {
                 open(data.hits[i].recipe.url);
             }
@@ -191,10 +191,43 @@ function link(recipe)           // link to recipe website
     })
 }
 
+function ingredient(recipe)       // show ingredients for cooking
+{
+    let cnt = 1;
+    fetch(query.withQuery("https://api.edamam.com/api/recipes/v2", {
+        type: "public",
+        q: recipe,
+        app_id: "1c14057a",
+        app_key: "f3dd743e3bce0d8211bc4fd914272de2",
+
+    }))
+    .then((response) => response.json())
+    .then((data) => {console.log("Ingredients for " + recipe);
+        for(let i = 0; i < data.hits.length; i++)                          
+        {
+            if(recipe.toUpperCase() === data.hits[i].recipe.label.toUpperCase())           // if input and recipe name are same, print ingredients for cooking
+            {
+                console.log(cnt+ "th recipe");
+                cnt++;
+                for(let j = 0; j < data.hits[i].recipe.ingredientLines.length; j++)
+                {
+                    console.log(j + ". " + data.hits[i].recipe.ingredientLines[j]);
+
+                }
+            }
+            
+        }
+        
+    })
+}
+
+
+
 
   
 
 module.exports = {
     recipes,
     link,
+    ingredient,
 };
