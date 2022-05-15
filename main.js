@@ -27,7 +27,12 @@ commander
     .command('link')
     .argument('<recipe>')
     .action(function() {
-        
+        command_check = "link";
+        for(let i = 0; i < this.args.length; i++){
+            link_recipe = link_recipe + this.args[i] + " "
+        }
+        link_recipe = link_recipe.slice(0 , -1);
+        console.log(link_recipe);
     })
 
 commander
