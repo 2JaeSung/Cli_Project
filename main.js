@@ -1,6 +1,5 @@
-const fetch = require("node-fetch");
-const query = require("with-query");
 const commander = require("commander");
+const lib = require("./lib");
 
 
 if(process.argv.length <= 2){
@@ -14,6 +13,11 @@ function SeperatedList(value, dummyPrevious) {
 }
 
 let command_check = "";
+
+let link_recipe = "";
+
+let ingredients_recipe = "";
+
 let food_check = "";
 let diet_check = "";
 let health_check = "";
@@ -23,14 +27,14 @@ commander
     .command('link')
     .argument('<recipe>')
     .action(function() {
-        command_check = "link";
+        
     })
 
 commander
     .command('ingredients')
     .argument('<recipe>')
     .action(function() {
-        command_check = "ingredients";
+        
     })
 
 commander
@@ -51,14 +55,10 @@ commander.parse(process.argv);
 
 
 if(command_check == "link") {
-    /*
-    fetch 함수 사용
-    */
+    lib.link(link_recipe);
 }
 else if(command_check == "ingredients") {
-    /*
-    fetch 함수 사용
-    */
+    lib.ingredient(ingredients_recipe);
 }
 else if(command_check == "list") {
     let food = "";
@@ -96,7 +96,7 @@ else if(command_check == "list") {
             break;
 
         default:
-            diet = "none";
+            diet = 0;
 
     }
 
@@ -130,7 +130,7 @@ else if(command_check == "list") {
             break;
 
         default:
-            health = "none";
+            health = 0;
     }
 
     switch(meal_check){
@@ -155,14 +155,12 @@ else if(command_check == "list") {
             break;
 
         default:
-            meal = "none";
+            meal = 0;
 
     }
 
 
-    /*
-    fetch 함수 사용
-    */
+    lib.recipes(food, diet, health, meal);
 
 }
 
