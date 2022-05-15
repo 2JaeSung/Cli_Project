@@ -22,7 +22,7 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
         .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)                      // print recipe list
             {
-                console.log(i + ". " + data.hits[i].recipe.label)
+                console.log((i + 1) + ". " + data.hits[i].recipe.label)
             }
             
         })
@@ -42,7 +42,7 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
         .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
-                console.log(i + ". " + data.hits[i].recipe.label)
+                console.log((i + 1) + ". " + data.hits[i].recipe.label)
             }
             
         })
@@ -62,7 +62,7 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
         .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
-                console.log(i + ". " + data.hits[i].recipe.label)
+                console.log((i + 1) + ". " + data.hits[i].recipe.label)
             }
             
         })
@@ -82,7 +82,7 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
         .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
-                console.log(i + ". " + data.hits[i].recipe.label)
+                console.log((i + 1) + ". " + data.hits[i].recipe.label)
             }
             
         })
@@ -101,7 +101,7 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
         .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
-                console.log(i + ". " + data.hits[i].recipe.label)
+                console.log((i + 1) + ". " + data.hits[i].recipe.label)
             }
             
         })
@@ -120,7 +120,7 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
         .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
-                console.log(i + ". " + data.hits[i].recipe.label)
+                console.log((i + 1) + ". " + data.hits[i].recipe.label)
             }
             
         })
@@ -139,7 +139,7 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
         .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
-                console.log(i + ". " + data.hits[i].recipe.label)
+                console.log((i + 1) + ". " + data.hits[i].recipe.label)
             }
             
         })
@@ -157,7 +157,7 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
         .then((data) => {console.log("Recipe list");
             for(let i = 0; i < data.hits.length; i++)
             {
-                console.log(i + ". " + data.hits[i].recipe.label)
+                console.log((i + 1) + ". " + data.hits[i].recipe.label)
             }
             
         })
@@ -211,7 +211,7 @@ function ingredient(recipe)       // show ingredients for cooking
                 cnt++;
                 for(let j = 0; j < data.hits[i].recipe.ingredientLines.length; j++)
                 {
-                    console.log(j + ". " + data.hits[i].recipe.ingredientLines[j]);
+                    console.log((j + 1) + ". " + data.hits[i].recipe.ingredientLines[j]);
 
                 }
             }

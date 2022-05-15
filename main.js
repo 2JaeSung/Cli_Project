@@ -66,7 +66,9 @@ commander.parse(process.argv);
 
 
 if(command_check == "link") {
+
     lib.link(link_recipe);
+
 }
 else if(command_check == "ingredients") {
     lib.ingredient(ingredients_recipe);
