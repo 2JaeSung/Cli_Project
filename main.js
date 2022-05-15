@@ -34,7 +34,12 @@ commander
     .command('ingredients')
     .argument('<recipe>')
     .action(function() {
-        
+        command_check = "ingredients";
+        for(let i = 0; i < this.args.length; i++){
+            ingredients_recipe = ingredients_recipe + this.args[i] + " "
+        }
+        ingredients_recipe = ingredients_recipe.slice(0, -1);
+        console.log(ingredients_recipe);
     })
 
 commander
