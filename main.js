@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const query = require("with-query");
 const commander = require("commander");
+const lib = require("./lib");
 
 
 if(process.argv.length <= 2){
@@ -54,6 +55,7 @@ if(command_check == "link") {
     /*
     fetch 함수 사용
     */
+
 }
 else if(command_check == "ingredients") {
     /*
