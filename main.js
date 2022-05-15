@@ -1,5 +1,3 @@
-const fetch = require("node-fetch");
-const query = require("with-query");
 const commander = require("commander");
 const lib = require("./lib");
 
@@ -15,6 +13,11 @@ function SeperatedList(value, dummyPrevious) {
 }
 
 let command_check = "";
+
+let link_recipe = "";
+
+let ingredients_recipe = "";
+
 let food_check = "";
 let diet_check = "";
 let health_check = "";
@@ -22,20 +25,31 @@ let meal_check="";
 
 commander
     .command('link')
-    .argument('<recipe>')
+    .description('This command links you to a website that has the information you need to make the recipe    #No Options availalbe!')
+    .argument('<recipe>', 'Enter the recipe name')
     .action(function() {
         command_check = "link";
+        for(let i = 0; i < this.args.length; i++){
+            link_recipe = link_recipe + this.args[i] + " "
+        }
+        link_recipe = link_recipe.slice(0 , -1);
     })
 
 commander
     .command('ingredients')
-    .argument('<recipe>')
+    .description('This command shows a list of ingredients and how much you need to make the recipe you entered    #No Options availalbe!')
+    .argument('<recipe>', 'Enter the recipe name')
     .action(function() {
         command_check = "ingredients";
+        for(let i = 0; i < this.args.length; i++){
+            ingredients_recipe = ingredients_recipe + this.args[i] + " "
+        }
+        ingredients_recipe = ingredients_recipe.slice(0, -1);
     })
 
 commander
     .command('list')
+    .description('This command shows a list of what foods you can make with the ingredients you enter    #You must enter -f Option!')
     .requiredOption('-f, --food <food_list>', 'You must enter a list of ingredients seperated by ","    ex) -f chicken,pepper', SeperatedList)
     .option('-d, --diet <diet_info>', 'Enter the numbers given to put diet_info option    {0 = balanced, 1 = high-fiber, 2 = high-protein, 3 = low-carb, 4 = low-fat, 5 = low-sodium}    ex) -d 1')
     .option('-h, --health <health_info>', 'Enter the numbers given to put health_info option    {0 = alcohol-free, 1 = vegetarian, 2 = vegan, 3 = wheat-free, 4 = sugar-conscious, 5 = gluten-free, 6 = fish-free}    ex) -h 2')
@@ -52,15 +66,12 @@ commander.parse(process.argv);
 
 
 if(command_check == "link") {
-    /*
-    fetch 함수 사용
-    */
+
+    lib.link(link_recipe);
 
 }
 else if(command_check == "ingredients") {
-    /*
-    fetch 함수 사용
-    */
+    lib.ingredient(ingredients_recipe);
 }
 else if(command_check == "list") {
     let food = "";
@@ -98,7 +109,7 @@ else if(command_check == "list") {
             break;
 
         default:
-            diet = "none";
+            diet = 0;
 
     }
 
@@ -132,7 +143,7 @@ else if(command_check == "list") {
             break;
 
         default:
-            health = "none";
+            health = 0;
     }
 
     switch(meal_check){
@@ -157,14 +168,12 @@ else if(command_check == "list") {
             break;
 
         default:
-            meal = "none";
+            meal = 0;
 
     }
 
 
-    /*
-    fetch 함수 사용
-    */
+    lib.recipes(food, diet, health, meal);
 
 }
 
