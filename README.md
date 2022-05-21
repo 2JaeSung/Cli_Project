@@ -66,7 +66,11 @@ chef link --help
 ```
 해당 명령어를 사용하게 되면, recipe에 대한 만드는 정보가 나와있는 사이트로 연결해줍니다.\
 link 커멘드에는 <recipe>이라는 argument가 존재합니다.\
-해당 <recipe>에는 list 커멘드의 결과로 나온 레시피 이름 중 하나를 입력하면 됩니다.
+해당 <recipe>에는 list 커멘드의 결과로 나온 레시피 이름 중 하나를 입력하면 됩니다.\
+ex)
+```
+chef link hainanese-chicken-rice
+```
 
 #### ingredients Command
 ingredients 커멘드에 대한 자세한 정보를 보고 싶다면 아래의 커멘드를 사용하면 됩니다.
@@ -75,4 +79,8 @@ chef ingredients --help
 ```
 해당 명령어를 사용하게 되면, recipe에 필요한 재료들의 이름과 양을 출력해줍니다.\
 ingredients 커멘드에는 <recipe>이라는 argument가 존재합니다.\
-해당 <recipe>에는 list 커멘드의 결과로 나온 레시피 이름 중 하나를 입력하면 됩니다.
+해당 <recipe>에는 list 커멘드의 결과로 나온 레시피 이름 중 하나를 입력하면 됩니다.\
+ex)
+```
+chef ingredients hainanese-chicken-rice
+```
