@@ -19,10 +19,18 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Recipe list");
-            for(let i = 0; i < data.hits.length; i++)                      // print recipe list
+        .then((data) => {
+            if(data.hits.length === 0)
             {
-                console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                console.log("recipe is not found")
+            }
+            else
+            {
+                console.log("Recipe list");
+                for(let i = 0; i < data.hits.length; i++)                      // print recipe list
+                {
+                    console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                }
             }
             
         })
@@ -39,10 +47,18 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Recipe list");
-            for(let i = 0; i < data.hits.length; i++)
+        .then((data) => {
+            if(data.hits.length === 0)
             {
-                console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                console.log("recipe is not found")
+            }
+            else
+            {
+                console.log("Recipe list");
+                for(let i = 0; i < data.hits.length; i++)
+                {
+                    console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                }
             }
             
         })
@@ -59,10 +75,19 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Recipe list");
-            for(let i = 0; i < data.hits.length; i++)
+        .then((data) => {
+            if(data.hits.length === 0)
             {
-                console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                console.log("recipe is not found")
+            }
+            else
+            {
+            
+                console.log("Recipe list");
+                for(let i = 0; i < data.hits.length; i++)
+                {
+                    console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                }
             }
             
         })
@@ -79,10 +104,18 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Recipe list");
-            for(let i = 0; i < data.hits.length; i++)
+        .then((data) => {
+            if(data.hits.length === 0)
             {
-                console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                console.log("recipe is not found")
+            }
+            else
+            {
+                console.log("Recipe list");
+                for(let i = 0; i < data.hits.length; i++)
+                {
+                    console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                }
             }
             
         })
@@ -98,10 +131,18 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Recipe list");
-            for(let i = 0; i < data.hits.length; i++)
+        .then((data) => {
+            if(data.hits.length === 0)
             {
-                console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                console.log("recipe is not found")
+            }
+            else
+            {
+                console.log("Recipe list");
+                for(let i = 0; i < data.hits.length; i++)
+                {
+                    console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                }
             }
             
         })
@@ -117,10 +158,18 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Recipe list");
-            for(let i = 0; i < data.hits.length; i++)
+        .then((data) => {
+            if(data.hits.length === 0)
             {
-                console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                console.log("recipe is not found")
+            }
+            else
+            {
+                console.log("Recipe list");
+                for(let i = 0; i < data.hits.length; i++)
+                {
+                    console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                }
             }
             
         })
@@ -136,10 +185,18 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Recipe list");
-            for(let i = 0; i < data.hits.length; i++)
+        .then((data) => {
+            if(data.hits.length === 0)
             {
-                console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                console.log("recipe is not found")
+            }
+            else
+            {
+                console.log("Recipe list");
+                for(let i = 0; i < data.hits.length; i++)
+                {
+                    console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                }
             }
             
         })
@@ -154,10 +211,18 @@ function recipes(food, diet, health, meal)  // print recipe list fuction
     
         }))
         .then((response) => response.json())
-        .then((data) => {console.log("Recipe list");
-            for(let i = 0; i < data.hits.length; i++)
+        .then((data) => {
+            if(data.hits.length === 0)
             {
-                console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                console.log("recipe is not found")
+            }
+            else
+            {
+                console.log("Recipe list");
+                for(let i = 0; i < data.hits.length; i++)
+                {
+                    console.log((i + 1) + ". " + data.hits[i].recipe.label)
+                }
             }
             
         })
@@ -179,6 +244,12 @@ function link(recipe)           // link to recipe website
     }))
     .then((response) => response.json())
     .then((data) => {
+
+        if(data.hits.length === 0)
+        {
+            console.log("recipe is not found")
+        }
+        
         for(let i = 0; i < data.hits.length; i++)                          
         {
             if(recipe.toUpperCase() === data.hits[i].recipe.label.toUpperCase())          // if input and recipe name are same, link to recipe site
@@ -202,21 +273,31 @@ function ingredient(recipe)       // show ingredients for cooking
 
     }))
     .then((response) => response.json())
-    .then((data) => {console.log("Ingredients for " + recipe);
-        for(let i = 0; i < data.hits.length; i++)                          
+    .then((data) => {
+        if(data.hits.length === 0)
         {
-            if(recipe.toUpperCase() === data.hits[i].recipe.label.toUpperCase())           // if input and recipe name are same, print ingredients for cooking
-            {
-                console.log(cnt+ "th recipe");
-                cnt++;
-                for(let j = 0; j < data.hits[i].recipe.ingredientLines.length; j++)
-                {
-                    console.log((j + 1) + ". " + data.hits[i].recipe.ingredientLines[j]);
-
-                }
-            }
-            
+            console.log("recipe is not found")
         }
+        else
+        {
+            console.log("Ingredients for " + recipe);
+            for(let i = 0; i < data.hits.length; i++)                          
+            {
+                if(recipe.toUpperCase() === data.hits[i].recipe.label.toUpperCase())           // if input and recipe name are same, print ingredients for cooking
+                {
+                    console.log(cnt+ "th recipe");
+                    cnt++;
+                    for(let j = 0; j < data.hits[i].recipe.ingredientLines.length; j++)
+                    {
+                        console.log((j + 1) + ". " + data.hits[i].recipe.ingredientLines[j]);
+
+                    }
+                }
+            
+            }
+
+        }
+        
         
     })
 }
